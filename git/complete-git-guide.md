@@ -1,61 +1,24 @@
-<style>
-     .note-name {          
-          font-weight: 700;
-          font-size:60px;
-          text-shadow:5px 5px 10px blue;
-          letter-spacing: 4px;
-     }
-</style>
-
-<center><spand class="note-name">Complete Git Guide</span></center>
-
----
-<br>
-
-# Table of contents
-1. [Git Object Types](#git-object-types)  
-     - [Blob](#blob)  
-     - [Tree](#tree)
-2. [Some paragraph](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+- [Git Intenals](#git-intenals)
+  - [Git Low Level Commands:](#git-low-level-commands)
+      - [Git cat-file](#git-cat-file)
+      - [Git hash-object](#git-hash-object)
+  - [Git Permission types](#git-permission-types)
+- [Git Object Types](#git-object-types)
+    - [Blob](#blob)
+    - [Tree](#tree)
 
 <br>
 
-# **[Git Object Types](#git-object-types)**
-```
-- Blob -> All types of files are stored as Blob 
-- Tree -> Information about Directories
-- Commit -> Allows to store different versions of files of project
-- Annotated Tag -> Persistant text pointer to a specifi commit
-```
+# Git Intenals
 
-*Git Low Level Commands:*  
+
+## Git Low Level Commands:  
+
 - git hash-object  
 - git cat-file  
 - git mktree  
 
-<br>
-
-## **[Blob](#blob)**
-
-Creating blobs from text:  
-
-```ps
-$echo "Hello, Git" | git hash-object --stdin -w   (-w to write object to file system)  
-$b7aec520dec0a7516c18eb4c68b64ae1eb9b5a5e  
-```
-
-Creating blobs from files:
-
-To write file:
-```ps
-$ git hash-object filename -w
-```
-
-This will create fiel object inside .git-> objects -> b7 (starting 2 characters of Hashcode)
-
-### **_Git cat-file:_**
+#### Git cat-file
 
 Provide content or type and size information for repository objects
 Flags: -p to print contects, -s to print size and -t for type of object
@@ -94,20 +57,13 @@ $ echo -e "blob 30\0Second file in Git repository" | shasum
 4400aae52a27341314f423095846b1f215a7cf08
 ```
 
-### Using Git hash-object:
+#### Git hash-object
 $ echo "Second file in Git repository" | git hash-object --stdin
 4400aae52a27341314f423095846b1f215a7cf08
 
-## **[Tree](#tree)**
- A *"tree"* in Git is an object (a file, really) which contains a list of pointers to blobs or other trees.  Each line in the tree object's file contains:   
-***mode/permissions, the type, the hash, and the file name***  
-e.g 
-```ps
-  $ git cat-file -p ef34a15  
-  100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad    readme.md
-```
 
-### Git Permission types:
+
+## Git Permission types
 | Binary | Octal | Meaning |
 | ------ | ----- |-------------|
 |0100000000000000|(040000)| Directory|  
@@ -117,13 +73,53 @@ e.g
 |1010000000000000| (120000)| Symbolic link|
 |1110000000000000| (160000)| Gitlink|
 
+
+
+# Git Object Types
+
+```
+- Blob -> All types of files are stored as Blob 
+- Tree -> Information about Directories
+- Commit -> Allows to store different versions of files of project
+- Annotated Tag -> Persistant text pointer to a specifi commit
+```
+
+### Blob
+
+Creating blobs from text:  
+
+```ps
+$echo "Hello, Git" | git hash-object --stdin -w   (-w to write object to file system)  
+$b7aec520dec0a7516c18eb4c68b64ae1eb9b5a5e  
+```
+
+Creating blobs from files:
+
+To write file:
+```ps
+$ git hash-object filename -w
+```
+
+This will create fiel object inside .git-> objects -> b7 (starting 2 characters of Hashcode)
+
+
+### Tree
+ A *"tree"* in Git is an object (a file, really) which contains a list of pointers to blobs or other trees.  Each line in the tree object's file contains:   
+***mode/permissions, the type, the hash, and the file name***  
+e.g 
+```ps
+  $ git cat-file -p ef34a15  
+  100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad    readme.md
+```
+
+
 Creating a Git Tree Object:
 
 We have two files now in Git objects. We can view them as:
 
 ```ps
 $ find objects/ -type f
-objects/44/00aae52a27341314f423095846b1f215a7cf08
+objecUsing ts/44/00aae52a27341314f423095846b1f215a7cf08
 objects/b7/aec520dec0a7516c18eb4c68b64ae1eb9b5a5e
 ```
 
