@@ -1,24 +1,20 @@
-- [Git Intenals](#git-intenals)
-  - [Git Low Level Commands:](#git-low-level-commands)
-      - [Git cat-file](#git-cat-file)
-      - [Git hash-object](#git-hash-object)
-  - [Git Permission types](#git-permission-types)
+- [Git Low Level Commands](#git-low-level-commands)
+    - [Git cat-file](#git-cat-file)
+    - [Git hash-object](#git-hash-object)
+- [Git Permission types](#git-permission-types)
 - [Git Object Types](#git-object-types)
     - [Blob](#blob)
     - [Tree](#tree)
 
 <br>
 
-# Git Intenals
-
-
-## Git Low Level Commands:  
+# Git Low Level Commands  
 
 - git hash-object  
 - git cat-file  
 - git mktree  
 
-#### Git cat-file
+### Git cat-file
 
 Provide content or type and size information for repository objects
 Flags: -p to print contects, -s to print size and -t for type of object
@@ -57,13 +53,13 @@ $ echo -e "blob 30\0Second file in Git repository" | shasum
 4400aae52a27341314f423095846b1f215a7cf08
 ```
 
-#### Git hash-object
+### Git hash-object
 $ echo "Second file in Git repository" | git hash-object --stdin
 4400aae52a27341314f423095846b1f215a7cf08
 
 
 
-## Git Permission types
+# Git Permission types
 | Binary | Octal | Meaning |
 | ------ | ----- |-------------|
 |0100000000000000|(040000)| Directory|  
