@@ -98,6 +98,7 @@ $ git hash-object filename -w
 
 This will create fiel object inside .git-> objects -> b7 (starting 2 characters of Hashcode)
 
+> *Git always reuses same save hash code for files with exactly same content.*
 
 ### Tree
  A *"tree"* in Git is an object (a file, really) which contains a list of pointers to blobs or other trees.  Each line in the tree object's file contains:   
