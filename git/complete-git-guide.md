@@ -5,6 +5,8 @@
 - [Git Object Types](#git-object-types)
     - [Blob](#blob)
     - [Tree](#tree)
+- [Git Low Level Commands](#git-low-level-commands-1)
+    - [Git cat-file](#git-cat-file-1)
     - [Git hash-object](#git-hash-object-1)
 - [Git Permission types](#git-permission-types-1)
 - [Git Object Types](#git-object-types-1)
@@ -126,13 +128,7 @@ We have two files now in Git objects. We can view them as:
 
 ```ps
 $ find objects/ -type f
-- [Git Low Level Commands](#git-low-level-commands)
-    - [Git cat-file](#git-cat-file)
-    - [Git hash-object](#git-hash-object)
-- [Git Permission types](#git-permission-types)
-- [Git Object Types](#git-object-types)
-    - [Blob](#blob)
-    - [Tree](#tree)
+```
 
 <br>
 
