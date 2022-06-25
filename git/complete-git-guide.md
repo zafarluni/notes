@@ -17,6 +17,8 @@
 - [Git Pack Files](#git-pack-files)
 - [Merging](#merging)
   - [Fast-Forward Merge](#fast-forward-merge)
+- [Remote Reporsitories](#remote-reporsitories)
+  - [Tracking Branches](#tracking-branches)
 
 <br>
 
@@ -367,4 +369,39 @@ Fast forward merge can be performed when there is a direct linear path from the 
 git merge feature-branch
 ```
 
+# Remote Reporsitories
 
+Default name of Remote branch is **origin**.
+
+To list remote repositories
+
+```ps
+git remote
+```
+
+For details for pull and fetch targets:
+
+```ps
+git remote
+```
+To list only remote branches:
+
+```ps
+git branch -r
+```
+
+To list all local and remote branches:
+
+```ps
+git branch -a
+```
+
+## Tracking Branches
+
+Tracking branch is your local branch that is connected to specific remoter branch. By defautl when you clone any remote repository git creates one tracking branch and name of this branch match name of **default** branch in remote repository.
+
+To list your tracking branches:
+
+```ps
+git branch -vv
+```
